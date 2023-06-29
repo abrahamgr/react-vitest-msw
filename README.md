@@ -45,3 +45,12 @@ Add the following scripts for testing
 "test:ci": "vitest run --coverage",
 "test:ui": "vitest --ui --coverage"
 ```
+
+## Add api
+
+Install the following
+
+```bash
+npm add lowdb express express-jwt cors
+npm add lowdb fastify @fastify/auth @fastify/bearer-auth @fastify/cors @fastify/jwt
+```

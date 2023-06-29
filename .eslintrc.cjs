@@ -18,6 +18,11 @@ module.exports = {
     'arrow-parens': [ 'error', 'as-needed' ],
     'arrow-spacing': 'error',
     'key-spacing': ['error', { 'beforeColon': false }],
-    'no-empty-interface': [ 'errpr', { 'allowSingleExtends': false } ],
+    '@typescript-eslint/no-empty-interface': [
+      'error',
+      {
+        'allowSingleExtends': true,
+      }
+    ],
   },
 }

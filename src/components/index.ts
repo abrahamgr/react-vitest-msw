@@ -1,2 +1,2 @@
-export * from '../pages/Counter'
+export * from './Button'
 export * from './layout'

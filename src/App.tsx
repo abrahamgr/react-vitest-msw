@@ -1,4 +1,5 @@
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './GlobalStyles'
 import { Footer, Header } from './components/layout'
 import { Counter } from './pages'
 import { theme } from './theme'
@@ -9,25 +10,16 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
 `
-
-const GlobalStyles = createGlobalStyle`
-  #root {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 100vh;
-  }
-`
 function App() {
   return (
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    <Header />
-    <Main>
-      <Counter />
-    </Main>
-    <Footer />
-  </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Header />
+      <Main>
+        <Counter />
+      </Main>
+      <Footer />
+    </ThemeProvider>
   )
 }
 
