@@ -10,6 +10,7 @@ const Main = styled.main`
   justify-content: center;
   align-items: center;
 `
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
