@@ -26,4 +26,9 @@ dist-ssr
 
 # tests
 /coverage/*
-api/*.js
+api/**/*.js
+api/*.json
+
+# prod
+build
+build-api

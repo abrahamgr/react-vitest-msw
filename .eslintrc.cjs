@@ -25,4 +25,8 @@ module.exports = {
       }
     ],
   },
+  ignorePatterns: [
+    '**/dist',
+    '**/build-api'
+  ],
 }
