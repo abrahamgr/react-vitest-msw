@@ -25,10 +25,9 @@ dist-ssr
 *.sw?
 
 # tests
-/coverage/*
+coverage
 api/**/*.js
-api/*.json
+db.json
 
 # prod
 build
-build-api
