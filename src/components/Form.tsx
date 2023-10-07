@@ -1,14 +1,14 @@
-import type { FC, PropsWithChildren } from 'react'
+import type { FC, PropsWithChildren, FormHTMLAttributes  } from 'react'
 import { Flex, Card, Heading } from '@radix-ui/themes'
 
-interface FormProps extends PropsWithChildren {
+interface FormProps extends PropsWithChildren, FormHTMLAttributes<HTMLFormElement> {
   title?: string
 }
 
-export const Form: FC<FormProps> = ({ children, title }) => {
+export const Form: FC<FormProps> = ({ children, title, ...rest }) => {
   return (
     <Card asChild size='4'>
-      <form>
+      <form {...rest}>
         <Flex direction='column' gap='5'>
           {title ? <Heading as='h2' align='center'>Login</Heading> : null}
           {children}
