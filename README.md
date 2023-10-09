@@ -4,6 +4,10 @@ Example of SPA using MSW for unit and E2E testing
 
 The project was created with the initial [guide](https://vitejs.dev/guide/)
 
+## Installation
+
+You need to have installed `pnpm` then you can just run `pnpm i` to install all dependencies for each project.
+
 ## Add vitest
 
 Install vitest and React Testing Library

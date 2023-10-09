@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git@abrahamgr:abrahamgr/react-vitest-msw.git"
   },
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@8.8.0",
   "keywords": [],
   "author": "",
   "license": "ISC",

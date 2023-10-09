@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:ci": "vitest run --coverage"
   },
+  "packageManager": "pnpm@8.8.0",
   "dependencies": {
     "@emotion/is-prop-valid": "^1.2.1",
     "@radix-ui/themes": "^1.1.2",
@@ -32,6 +33,5 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.11",
     "vitest": "^0.34.6"
-  },
-  "packageManager": "pnpm"
+  }
 }

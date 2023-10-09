@@ -10,7 +10,7 @@
     "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "packageManager": "pnpm",
+  "packageManager": "pnpm@8.8.0",
   "keywords": [],
   "author": "",
   "license": "ISC",
