@@ -2,10 +2,10 @@ import {
   RouteHandler,
   FastifyPluginCallback
 } from 'fastify'
-import { paths } from '../paths.ts'
-// import { LoginSchema } from '../schemas.ts'
-import { db } from '../data/index.ts'
-import { User } from '../data/typings.ts'
+import { paths } from '../paths'
+import { LoginBody } from '../schemas'
+import { db } from '../data/index'
+import { User } from '../data/typings'
 
 const loginHandler: RouteHandler =  (req, reply) => {
   const user = req.body as User
@@ -18,6 +18,9 @@ const loginHandler: RouteHandler =  (req, reply) => {
 }
 
 export const login: FastifyPluginCallback = (app, _, done) => {
-  app.post(paths.login, { schema: { } }, loginHandler)
+  app.post(paths.login, {
+    schema: {
+      body: LoginBody,
+    } }, loginHandler)
   done()
 }

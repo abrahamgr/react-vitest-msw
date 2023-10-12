@@ -2,17 +2,16 @@
   "compilerOptions": {
     "target": "ESNext",
     /* Target node 16 */
-    "module": "ESNext",
+    "module": "CommonJS",
     "lib": ["ES2021", "DOM"],
-    // "target": "ES2021",
     "skipLibCheck": true,
 
     /* Transpile with esbuild */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
+    "moduleResolution": "Node",
+    "noEmit": false,
     "isolatedModules": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
 
     /* Linting */
     "strict": true,
@@ -20,5 +19,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "useUnknownInCatchVariables": true,
-  }
+    "outDir": "build"
+  },
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

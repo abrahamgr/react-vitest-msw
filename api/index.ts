@@ -2,8 +2,8 @@ import Fastify, { type RegisterOptions } from 'fastify'
 import jwt from '@fastify/jwt'
 import cors from '@fastify/cors'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
-import { login } from './routes/login.ts'
-import { db } from './data/index.ts'
+import { login } from './routes/login'
+import { db } from './data/index'
 
 const port: number = process.env.PORT ? Number(process.env.PORT) : 8080
 
@@ -33,12 +33,16 @@ fastify.register(cors, {
     cb(new Error('Not allowed'), false)
   },
 })
+
 fastify.register(jwt, {
   secret: 'my-secret',
 })
 
 // Declare a route
 fastify.get('/', async function handler () {
+  // return {
+  //   status: 'ok',
+  // }
   return db.data.users
 })
 
@@ -49,11 +53,16 @@ const registerOptions: RegisterOptions = {
 fastify.register(login, registerOptions)
 
 // Run the server!
-try {
-  await fastify.listen({
-    port,
-  })
-} catch (err) {
-  fastify.log.error(err)
-  process.exit(1)
+async function run(){
+  try {
+    const address = await fastify.listen({
+      port,
+    })
+    console.log('Server started on port %o', address)
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
 }
+
+run()

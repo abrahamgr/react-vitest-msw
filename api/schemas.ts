@@ -1,6 +1,6 @@
 import { Type } from '@sinclair/typebox'
 
-export const LoginSchema = {
+export const LoginBody = Type.Object({
   username: Type.String(),
   password: Type.String(),
-}
+})

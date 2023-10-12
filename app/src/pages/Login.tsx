@@ -15,7 +15,7 @@ export function Login(){
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {
-        // 'Content-Type': 'text/json',
+        'Content-Type': 'application/json',
       },
     })
     response.ok
