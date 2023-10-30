@@ -14,9 +14,11 @@ export function Login(){
     setErrorMessage('')
 
     const response = await postLogin(getFormData(data.target as HTMLFormElement))
-    const { success, message } = response
-    if(success)
+    const { success, message, token } = response
+    if(success && token) {
+      localStorage.setItem('token', token)
       setErrorMessage('Login successfully')
+    }
     else if(message)
       setErrorMessage(message)
   }

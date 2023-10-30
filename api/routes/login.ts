@@ -14,9 +14,12 @@ const loginHandler: RouteHandler = async (req, reply) => {
     return result
   }
   
+  const { username } = user
+  const token = req.server.jwt.sign({ username }, { expiresIn: '1d' })
   reply.status(200)
   return {
     success: true,
+    token,
   }
 }
 

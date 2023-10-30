@@ -9,5 +9,6 @@ export interface User {
 
 export interface LoginResponse {
   success: boolean
-  message: string
+  message?: string
+  token?: string
 }

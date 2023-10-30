@@ -2,8 +2,10 @@ import Fastify, { type RegisterOptions } from 'fastify'
 import jwt from '@fastify/jwt'
 import cors from '@fastify/cors'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
-import { login } from './routes/login'
-import { db } from './data/index'
+import { login } from './routes/login.js'
+import { config } from 'dotenv'
+
+config({ path: '.env'})
 
 const port: number = process.env.PORT ? Number(process.env.PORT) : 8080
 
@@ -35,15 +37,7 @@ fastify.register(cors, {
 })
 
 fastify.register(jwt, {
-  secret: 'my-secret',
-})
-
-// Declare a route
-fastify.get('/', async function handler () {
-  // return {
-  //   status: 'ok',
-  // }
-  return db.data.users
+  secret: process.env.JWT_SECRET as string,
 })
 
 const registerOptions: RegisterOptions = {
