@@ -5,7 +5,7 @@ import {
   Outlet
 } from 'react-router-dom'
 import { paths } from './const/paths'
-import { Counter, Login } from './pages'
+import { Counter, Login, Register } from './pages'
 import { Header, Footer } from './components'
 
 const Main = styled.main`
@@ -33,6 +33,10 @@ const routes = createBrowserRouter([
       {
         path: paths.login,
         element: <Login />,
+      },
+      {
+        path: paths.register,
+        element: <Register />,
       }
     ],
   }

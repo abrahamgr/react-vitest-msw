@@ -5,6 +5,9 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "paths": {
+      "api/*": [ "../api/*" ]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -19,8 +22,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": [ "vitest/globals" ]
+    "types": [ "vitest/globals" ],
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

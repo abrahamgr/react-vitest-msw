@@ -2,18 +2,37 @@ import {
   RouteHandler,
   FastifyPluginCallback
 } from 'fastify'
-import { paths } from '../paths'
-import { LoginBody } from '../schemas'
-import { db } from '../data/index'
-import { User } from '../data/typings'
+import { paths } from '../paths.js'
+import { LoginBody } from '../schemas.js'
+import { User } from '../data/typings.js'
+import { findUserLogin, findUserRegister, signupUser } from '../data/login.js'
 
-const loginHandler: RouteHandler =  (req, reply) => {
+const loginHandler: RouteHandler = async (req, reply) => {
   const user = req.body as User
-  const userFound = db.data.users.find(item => item.username === user.username && item.password ===  user.password)
-  if(!userFound)
-    reply.status(404)
+  const result = await findUserLogin(user)
+  if(!result.success) {
+    return result
+  }
+  
+  reply.status(200)
   return {
-    success: userFound !== undefined,
+    success: true,
+  }
+}
+
+const signupHandler: RouteHandler = async (req, reply) => {
+  const user = req.body as User
+  const result = await findUserRegister(user)
+  
+  if(!result.success) {
+    return result
+  }
+
+  await signupUser(user)
+  reply.status(200)
+  return {
+    success: true,
+    message: 'user registered',
   }
 }
 
@@ -21,6 +40,14 @@ export const login: FastifyPluginCallback = (app, _, done) => {
   app.post(paths.login, {
     schema: {
       body: LoginBody,
-    } }, loginHandler)
+    },
+  }, loginHandler)
+
+  app.post(paths.signup, {
+    schema: {
+      body: LoginBody,
+    },
+  }, signupHandler)
+
   done()
 }

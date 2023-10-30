@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "ESNext",
     /* Target node 16 */
-    "module": "CommonJS",
+    "module": "Node16",
     "lib": ["ES2021", "DOM"],
     "skipLibCheck": true,
 
     /* Transpile with esbuild */
-    "moduleResolution": "Node",
+    "moduleResolution": "Node16",
     "noEmit": false,
     "isolatedModules": true,
     "resolveJsonModule": true,

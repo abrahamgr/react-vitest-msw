@@ -4,3 +4,4 @@ export const LoginBody = Type.Object({
   username: Type.String(),
   password: Type.String(),
 })
+
